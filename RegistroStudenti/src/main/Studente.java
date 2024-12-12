@@ -17,21 +17,22 @@ public class Studente {
 		this.matricola = matricola;
 	}
 
-	public Studente() { // ho dovuto creare una nuova classe Studente per poter creare l'oggetto
+	//public Studente() { // ho dovuto creare una nuova classe Studente per poter creare l'oggetto
 						// aggiungi a riga 23
-	}
+	//}
 
 	public static void aggiunta(ArrayList<Studente> elenco, Scanner scanner) {
 		int aggiunta = 1;
 		while (aggiunta == 1) {
-			Studente aggiungi = new Studente(); // creo l'oggetto aggiungi per poter richiamare i dati
+			 // creo l'oggetto aggiungi per poter richiamare i dati
 			System.out.println("Inserire il nome: ");
-			aggiungi.nome = scanner.nextLine();
+			String nome = scanner.nextLine();		//fixato dichiarando una variabile String nome
 			System.out.println("Inserire il cognome: ");
-			aggiungi.cognome = scanner.nextLine();
-			aggiungi.matricola = nMatricola; // aggiorna il numero di matricola che verrà assegnato al prossimo giro
+			String cognome = scanner.nextLine();	//fixato dichiarando una variabile String nome
+			int matricola = nMatricola; // aggiorna il numero di matricola che verrà assegnato al prossimo giro
 			nMatricola++;
-			System.out.println("ID assegnato: " + aggiungi.matricola);
+			System.out.println("ID assegnato: " + nMatricola);
+			Studente aggiungi = new Studente(nome, cognome, matricola);
 			elenco.add(aggiungi);				//aggiungo all'ArrayList elenco
 			System.out.println("Vuoi aggiungere un altro studente? 1) Si  2)No");
 			aggiunta = scanner.nextInt();
@@ -55,7 +56,7 @@ public class Studente {
 		for (Studente studente : elenco) { 		// per ogni studente della classe Studente scansiona l'elenco
 			if (numero == studente.matricola) {		// se trova una corrispondenza modifica il valore di trovato
 				trovato = true;
-				if (trovato = true) { 	//se è stato trovato stampa il messaggio				
+				if (trovato == true) { 	//se è stato trovato stampa il messaggio				
 					System.out.println("La matricola " + studente.matricola + " corrisponde a " + studente.nome + ", "
 							+ studente.cognome);
 				}
